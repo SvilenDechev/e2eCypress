@@ -5,8 +5,8 @@ class ToDoPage {
     cy.visit('https://example.cypress.io/todo')
   }
 
-  expectExistingTask(taskNumber) {
-    cy.get('.todo-list li').should('have.length', taskNumber)
+  expectExistingTask(taskCount) {
+    cy.get('.todo-list li').should('have.length', taskCount)
   }
 
   addTodo(todoText) {
@@ -21,7 +21,7 @@ class ToDoPage {
     cy.get(`:nth-child(${checkbox}) > .view > .toggle`).check()
   }
 
-  checkIfCheckBoxIsClicked(todoName){
+  expectIsCompleted(todoName){
     cy.contains(todoName).parents('li').should('have.class', 'completed')
   }
 }

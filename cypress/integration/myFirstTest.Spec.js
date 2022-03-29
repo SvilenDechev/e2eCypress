@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
-import  ToDoPage  from "../../page-object.js/todoPage";
+import  ToDoPage  from "../page-object.js/todoPage";
 
-describe('example to-do app', () => {
+describe('My first test --example to-do app', () => {
 
   beforeEach(() => {
     ToDoPage.navigateToHomeScreen()
@@ -24,7 +24,7 @@ describe('example to-do app', () => {
 
   it('check the todo as complete', () => {
     ToDoPage.clickCheckBox(1);
-    ToDoPage.checkIfCheckBoxIsClicked('Pay electric bill');
+    ToDoPage.expectIsCompleted('Pay electric bill');
   })
 
   // context('check the item', () => {
