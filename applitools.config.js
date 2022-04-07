@@ -1,6 +1,7 @@
+import key from "./cypress/fixtures/applitoolsKey.json"
 module.exports = {
   testConcurrency: 1,
-  apiKey: 'q8hQ88tr105YHY9110KwEgY2z3xcCBchWks8dcjoTboX1BE110',
+  apiKey: key.applitoolsKey,
   browser: [
       {width: 800, height: 600, name: 'chrome'},
   ],
