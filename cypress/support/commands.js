@@ -1,16 +1,11 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+import "cypress-real-events/support";
+import '@testing-library/cypress/add-commands'
+import '@applitools/eyes-cypress/commands'
+
+Cypress.Commands.add('expectExistingTaskCyCommand', (taskCount) => {
+  cy.get('.todo-list li').should('have.length', taskCount);
+    cy.log('>>>>>>>this is cypress command<<<<<<<<<');
+});
 //
 //
 // -- This is a child command --

@@ -1,28 +1,40 @@
 /// <reference types="cypress" />
 
 class ToDoPage {
-  navigateToHomeScreen() {
+  openTheTestApp() {
     cy.visit('https://example.cypress.io/todo')
   }
 
+  checkbox(checkboxNum){
+    return cy.get(`.todo-list li:nth-child(${checkboxNum}) input`);
+  }
+  
+  clickCheckBox(checkboxNum){
+    this.checkbox(checkboxNum).check()
+  }
+
+  uncheckCheckbox(checkboxNum){
+    this.checkbox(checkboxNum).uncheck()
+  }
+
   expectExistingTask(taskCount) {
-    cy.get('.todo-list li').should('have.length', taskCount)
+    cy.get('.todo-list li').should('have.length', taskCount);
+    cy.log('>>>>>this is method<<<<<<')
   }
 
   addTodo(todoText) {
-    cy.get('[data-test="new-todo"]').type(`${todoText}{enter}`)
+    //cypress way
+    cy.get('[data-test="new-todo"]').type(`${todoText}{enter}`);
+    //Testing Library
+    //cy.findByPlaceholderText('What needs to be done?').type(`${todoText}{enter}`);
   }
 
   expectTodoText(taskNumber, text) {
     cy.get(`.todo-list  li:nth-child(${taskNumber})`).should('have.text', text)
   }
 
-  clickCheckBox(checkbox){
-    cy.get(`:nth-child(${checkbox}) > .view > .toggle`).check()
-  }
-
   expectIsCompleted(todoName){
-    cy.contains(todoName).parents('li').should('have.class', 'completed')
+    cy.contains(todoName).parents('li').should('have.class', 'completed').and('be.visible');
   }
 }
 

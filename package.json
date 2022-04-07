@@ -1,9 +1,15 @@
 {
   "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.1.0",
+    "@applitools/eyes-cypress": "^3.25.3",
+    "@testing-library/cypress": "^8.0.2",
     "cypress": "^9.5.2"
   },
   "scripts": {
     "cypress": "cypress open",
     "test": "cypress run"
+  },
+  "dependencies": {
+    "cypress-real-events": "^1.7.0"
   }
 }
