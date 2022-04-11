@@ -10,9 +10,9 @@ describe('My first test --example to-do app', () => {
   });
   it('should display two todo by default', async () => {
     //Testing Library
-    cy.findByPlaceholderText('What needs to be done?').type(`${example.addTodoText}{enter}`)
+    cy.findByPlaceholderText('What needs to be done?').click().type(`${example.addTodoText}{enter}`);
     //added as cypress global command
-    cy.expectExistingTaskCyCommand(3);
+    //cy.expectExistingTaskCyCommand(3);
     //added as custom method
     ToDoPage.expectExistingTask(3);
     //chaining command 

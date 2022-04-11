@@ -1,5 +1,5 @@
 xit('screen', () => {
-  cy.visit('https://www.abv.bg/')
+  cy.visit('/todo')
 
 
   cy.eyesOpen({
@@ -25,6 +25,7 @@ cy.eyesClose()
 
 it('UI visual test', () => {
   cy.visit('/todo')
+  cy.findByPlaceholderText('What needs to be done?').should('be.visible');
   cy.eyesOpen({
     appName:'todoApp',
     tagName: 'test first state of the app, should have two todo '
