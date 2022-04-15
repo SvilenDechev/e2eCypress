@@ -13,5 +13,5 @@ module.exports = {
       // {deviceName: 'Pixel 2', screenOrientation: 'portrait'}
   ],
   // set batch name to the configuration
-  batchName: 'applitools test example "comprising home page "'
+  batchName: 'applitools "examples UI tests with cypress"'
 }
