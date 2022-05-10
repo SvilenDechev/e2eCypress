@@ -22,18 +22,18 @@ class ToDoPage {
     cy.log('>>>>>this is method<<<<<<')
   }
 
-  addTodo(todoText) {
+  addTask(todoText) {
     //cypress way
     cy.get('[data-test="new-todo"]').type(`${todoText}{enter}`);
     //Testing Library
     //cy.findByPlaceholderText('What needs to be done?').type(`${todoText}{enter}`);
   }
 
-  expectTodoText(taskNumber, text) {
+  expectTaskText(taskNumber, text) {
     cy.get(`.todo-list  li:nth-child(${taskNumber})`).should('have.text', text)
   }
 
-  expectIsCompleted(todoName){
+  expectTaskIsCompleted(todoName){
     cy.contains(todoName).parents('li').should('have.class', 'completed').and('be.visible');
   }
 }
