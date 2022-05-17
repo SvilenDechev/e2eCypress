@@ -7,13 +7,16 @@ describe('My first test --example to-do app', () => {
   beforeEach(() => {
     cy.visit('/todo')
   });
-  it('should display two todo by default', () => {
+ 
+  it('should display two todo by default', async () => {
     //Testing Library
-    cy.findByPlaceholderText('What needs to be done?').click().type(`${example.addTodoText}{enter}`);
+    //cy.findByPlaceholderText('What needs to be done?').click().type(`${example.addTodoText}{enter}`);
     //added as cypress global command
     cy.expectExistingTaskCyCommand(3);
     //added as custom method
-    ToDoPage.expectExistingTask(3);
+    cy.get('.todo-list li:nth-child(1)').should('be.visible')
+    cy.get('.todo-list li:nth-child(2)').should('be.visible')
+    cy.get('.todo-list li:nth-child(3)').should('not.be.visible') 
     //chaining command 
     cy.get('.todo-list li').should('have.length', 3).last().should('have.text', example.addTodoText);
   });
